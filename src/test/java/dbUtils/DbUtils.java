@@ -17,6 +17,7 @@ public class DbUtils {
     static ResultSet resultSet;
 
     public void createConnection(){
+
         try {
             connection = DriverManager.getConnection(databaseUrl,username,password);
         }catch (SQLException e){
@@ -49,7 +50,7 @@ public class DbUtils {
                 rowList.add(resultSet.getObject(columnName));
             }
         }catch (SQLException e){
-            System.out.println("Execution of the Query failed :"+e.getMessage());
+            System.out.println("Execution of the Query failed :" + e.getMessage());
         }
         return rowList;
     }
@@ -64,7 +65,7 @@ public class DbUtils {
                 connection.close();
             }
         }catch (SQLException e){
-            System.out.println("The close method failed :"+e.getMessage());
+            System.out.println("The close method failed :" +e.getMessage());
         }
     }
 
@@ -85,12 +86,6 @@ public class DbUtils {
         }
         st.close();
     }
-
-
-     /*
-     TYPE_SCROLL_INSENSITIVE
-     when using this type, the result set is scrollable, it means we can navigate forward abd backward through the rows
-      */
 
 
     public static Connection getConnection() {
@@ -224,14 +219,5 @@ public class DbUtils {
         }catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
-
-
-
-
-
-
-
-
 }

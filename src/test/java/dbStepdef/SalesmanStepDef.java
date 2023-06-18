@@ -15,10 +15,10 @@ public class SalesmanStepDef {
     SqlQueries sqlQueries = new SqlQueries();
     List<Object> dataSalesmanTable = new ArrayList<>();
 
-    // actually this method return a list
+    // actually this method returns a list
     // this method ==>> dbUtils.getColumnData(sqlQueries.columnSalesmanTable(salesman_id),salesman_id);
-    // but java says that you should assign to another list, thats why we created a list with name
-    // dataSalesmanTable and we assigned on this list
+    // but java says that you should assign to another list, that's why we created a list with name
+    // dataSalesmanTable, and we assigned on this list
     @Given("Connection to the database")
     public void connection_to_the_database() {
         dbUtils.createConnection();
@@ -28,7 +28,7 @@ public class SalesmanStepDef {
     public void list_the_in_the_salesman_id_column(String salesman_id) {
         dataSalesmanTable = dbUtils.getColumnData(sqlQueries.columnSalesmanTable(salesman_id), salesman_id);
         // sqlQueries.columnSalesmanTable(salesman_id),salesman_id) in this method we called
-        // only salesman_id column and we have checked salesman_id column only
+        // only salesman_id column, and we have checked salesman_id column only
 
     }
 
@@ -45,7 +45,7 @@ public class SalesmanStepDef {
     @Then("List the {string} in the salesman table")
     public void list_the_in_the_salesman_table(String firstname) {
         dataSalesmanTable = dbUtils.getColumnData(sqlQueries.generalViewTable("salesman"), firstname);
-        // we called all columns of in the salesman table but we have checked only firstname column
+        // we called all columns of in the salesman table, but we have checked only firstname column
 
     }
 
